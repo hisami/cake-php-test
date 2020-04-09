@@ -27,9 +27,8 @@ class CreateUsers extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('midified', 'string', [
+        $table->addColumn('modified', 'datetime', [
             'default' => null,
-            'limit' => 255,
             'null' => false,
         ]);
         $table->create();

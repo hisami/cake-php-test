@@ -37,13 +37,14 @@ class ArticlesController extends AppController
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($slug = null)
     {
-        $article = $this->Articles->get($id, [
-            'contain' => ['Users'],
-        ]);
+//        $article = $this->Articles->get($id, [
+//            'contain' => ['Users'],
+//        ]);
 
-        $this->set('article', $article);
+        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        $this->set(compact('article'));
     }
 
     /**
