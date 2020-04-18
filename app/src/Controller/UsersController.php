@@ -29,8 +29,6 @@ class UsersController extends AppController
     {
         if ($this->request->isPost()) {
             $user = $this->Auth->identify();
-            $this->log('hissab');
-            $this->log($user);
             if (!empty($user)) {
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
