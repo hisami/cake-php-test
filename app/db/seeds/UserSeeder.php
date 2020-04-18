@@ -15,19 +15,17 @@ class UserSeeder extends AbstractSeed
      */
     public function run()
     {
+        $datetime = date('Y-m-d H:i:s');
         $data = [
             [
-                'name' => 'hisamitsu',
-                'password' => 'tanuki',
-                'comment' => 'ryohei'
-            ],
-            [
-                'name' => 'harada',
-                'password' => 'rasuko',
-                'comment' => 'kanako'
+                'username' => 'hisamitsu',
+                'password' => 'secret',
+                'role' => 'admin',
+                'created' => $datetime,
+                'modified' => $datetime,
             ],
         ];
-        $people = $this->table('people');
+        $people = $this->table('users');
         $people->insert($data)->save();
     }
 }
